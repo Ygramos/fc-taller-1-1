@@ -1,5 +1,4 @@
-
-import {formatterPeso } from './functionGlobals.js'
+import { formatterPeso } from "./functionGlobals.js";
 const valorCred = 85000;
 const nCreditos = 25;
 const estrato = 2;

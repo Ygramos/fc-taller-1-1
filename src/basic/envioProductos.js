@@ -2,7 +2,7 @@ import { formatterPeso } from "./functionGlobals.js";
 const pesoArticulo = 289;
 let tarifaEnvio = 0;
 let valorDescuento = 0;
-let valorArticulos = 378000;
+let valorArticulos = 78000;
 let dia = "l";
 let tipoPago = "t";
 const valorTarifaFn = () => {
@@ -24,16 +24,17 @@ const valorTarifaFn = () => {
   return false;
 };
 const valorDescuentoFn = () => {
+  let valorDesc = 0;
   if (valorArticulos >= 300000 && valorArticulos <= 600000) {
-    let valorDesc = valorArticulos * (10 / 100);
+    valorDesc = valorArticulos * (10 / 100);
     return valorArticulos - valorDesc;
   }
   if (valorArticulos > 600000 && valorArticulos <= 1000000) {
-    let valorDesc = valorArticulos * (20 / 100);
+    valorDesc = valorArticulos * (20 / 100);
     return valorArticulos - valorDesc;
   }
   if (valorArticulos > 1000000) {
-    let valorDesc = valorArticulos * (30 / 100);
+    valorDesc = valorArticulos * (30 / 100);
     return valorArticulos - valorDesc;
   }
   return valorArticulos;
@@ -69,6 +70,8 @@ export const envioProductos = () => {
   Tipo de pago: [e] efectivo [t] tarjeta..: ${tipoPago == "t" ? "t" : "e"}
   tarifa..................................: ${formatterPeso(tarifaEnvio)}
   Promoción...............................: ${formatterPeso(valorDescuento)}
-  Total a pagar...........................: ${formatterPeso(tarifaEnvio - valorDescuento)}
+  Total a pagar...........................: ${formatterPeso(
+    tarifaEnvio - valorDescuento
+  )}
   `);
 };
