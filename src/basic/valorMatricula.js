@@ -1,3 +1,5 @@
+
+import {formatterPeso } from './functionGlobals.js'
 const valorCred = 85000;
 const nCreditos = 25;
 const estrato = 2;
@@ -32,18 +34,15 @@ const valorSubsidioFn = () => {
   }
 };
 
-const formatterPeso = new Intl.NumberFormat("es-CO", {
-  currency: "COP",
-  minimumFractionDigits: 0,
-});
-
 export const valorMatricula = () => {
   let valorCredito = valorCreditoFn();
   let totalMatricula = valorDescuentoFn(valorCredito);
   let subSidio = valorSubsidioFn();
-  console.log("Número de créditos……….....:" +  nCreditos);
-  console.log("Valor crédito…………………......:$" + formatterPeso.format(valorCred));
-  console.log("Estrato del estudiante…...:" + estrato);
-  console.log(`Costo de la matrícula……...:$${formatterPeso.format(totalMatricula)}`);
-  console.log(`Valor del subsidio…………....:$${formatterPeso.format(subSidio)}`);
+  console.log(`
+  Número de créditos.......: ${nCreditos}
+  Valor crédito............: ${formatterPeso(valorCred)}
+  Estrato del estudiante...: ${estrato}
+  Costo de la matrícula....: ${formatterPeso(totalMatricula)}
+  Valor del subsidio.......: ${formatterPeso(subSidio)}
+  `);
 };
