@@ -18,7 +18,7 @@ const valorTarifaFn = () => {
   if (pesoArticulo > 200) {
     let tarifa = 35000;
     let pesoAdd = pesoArticulo - 200;
-    let valorAdd = (2000 / 10) * pesoAdd;
+    let valorAdd = parseInt(pesoAdd / 10) * 2000;
     return tarifa + valorAdd;
   }
   return false;

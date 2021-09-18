@@ -23,6 +23,7 @@ const valorDescuentoFn = (valorCredito) => {
   if (estrato === 3) {
     return valorCredito * 0.3;
   }
+  return valorCredito;
 };
 const valorSubsidioFn = () => {
   if (estrato === 1) {
